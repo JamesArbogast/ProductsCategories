@@ -19,14 +19,14 @@ namespace ProductsCategories.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
-            return View("");
+            return View("AddProd");
         }
 
         // 1. handles GET request to DISPLAY the form used to create a new Post
         [HttpGet("/product/new")]
         public IActionResult New()
         {
-            return View("AddProduct");
+            return View("AddProd");
         }
 
         // 2. handles POST request form submission to CREATE a new Post model instance
@@ -51,10 +51,8 @@ namespace ProductsCategories.Controllers
         [HttpGet("/products")]
         public IActionResult All()
         {
-            // List<Product> allProducts = db.Products
-            // .Include(products => products.CreatedDishes)
-            // .ToList();
-            return View("Products");
+            List<Product> allProducts = db.Products.ToList();
+            return View("AllProducts", allProducts);
         }
 
         [HttpGet("/products/{productId}")]

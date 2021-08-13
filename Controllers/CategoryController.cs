@@ -16,11 +16,10 @@ namespace ProductsCategories.Controllers
         }
 
 
-        [HttpGet("")]
-        public IActionResult Index()
-        {
-            return View("");
-        }
+        // public IActionResult Index()
+        // {
+        //     return View("");
+        // }
 
         // 1. handles GET request to DISPLAY the form used to create a new Post
         [HttpGet("/category/new")]
@@ -51,10 +50,8 @@ namespace ProductsCategories.Controllers
         [HttpGet("/categories")]
         public IActionResult All()
         {
-            // List<Category> allCategories = db.Categories
-            // .Include(categories => categories.CreatedDishes)
-            // .ToList();
-            return View("Categories");
+            List<Category> allCategories = db.Categories.ToList();
+            return View("AllCategories", allCategories);
         }
 
         [HttpGet("/categories/{categoryId}")]

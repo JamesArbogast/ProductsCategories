@@ -1,0 +1,18 @@
+@model List<Category>;
+
+<div class="card">
+    <div class="card-header bg-dark text-light">Categories</div>
+    <div class="card-body">
+        <table>
+            <thead>
+                <th>Name</th>
+            </thead>
+                @foreach (var cat in Model)
+                {
+                    <tr>
+                        <td>@cat.Name</td>
+                    </tr>
+                }
+        </table>
+    </div>
+</div>
