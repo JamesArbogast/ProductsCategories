@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProductsCategories.Models;
 
-namespace ProjName.Models
+namespace ProductsCategories.Models
 {
     public class ProdCatContext : DbContext
     {
@@ -11,6 +11,7 @@ namespace ProjName.Models
         // the names of these properties will be the names of the tables in the db
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<SortedProduct> SortedProducts { get; set; }
 
     }
 }

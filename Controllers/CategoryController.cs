@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ProductsCategories.Controllers
 {
-    public class ProductController : Controller
+    public class CategoryController : Controller
     {
         private ProdCatContext db;
-        public ProductController(ProdCatContext context)
+        public CategoryController(ProdCatContext context)
         {
           db = context;
         }
@@ -23,15 +23,15 @@ namespace ProductsCategories.Controllers
         }
 
         // 1. handles GET request to DISPLAY the form used to create a new Post
-        [HttpGet("/product/new")]
+        [HttpGet("/category/new")]
         public IActionResult New()
         {
-            return View("AddProduct");
+            return View("AddCategory");
         }
 
         // 2. handles POST request form submission to CREATE a new Post model instance
-        [HttpPost("/products/create")]
-        public IActionResult CreateProduct (Product newProduct)
+        [HttpPost("/categories/create")]
+        public IActionResult CreateCategory (Category newCategory)
         {
             // Every time a form is submitted, check the validations.
             if (ModelState.IsValid == false)
@@ -41,61 +41,61 @@ namespace ProductsCategories.Controllers
             }
 
             // The above return did not happen so ModelState IS valid.
-            db.Products.Add(newProduct);
+            db.Categories.Add(newCategory);
             // db doesn't update until we run save changes
             // after SaveChanges, our newPost object now has it's PostId updated from db auto generated id
             db.SaveChanges();
             return RedirectToAction("All");
         }
 
-        [HttpGet("/products")]
+        [HttpGet("/categories")]
         public IActionResult All()
         {
-            // List<Product> allProducts = db.Products
-            // .Include(products => products.CreatedDishes)
+            // List<Category> allCategories = db.Categories
+            // .Include(categories => categories.CreatedDishes)
             // .ToList();
-            return View("Products");
+            return View("Categories");
         }
 
-        [HttpGet("/products/{productId}")]
-        public IActionResult Details(int productId)
+        [HttpGet("/categories/{categoryId}")]
+        public IActionResult Details(int categoryId)
         {
-            Product product = db.Products.FirstOrDefault(c => c.ProductId == productId);
+            Category category = db.Categories.FirstOrDefault(c => c.CategoryId == categoryId);
 
-            if (product == null)
+            if (category == null)
             {
                 return RedirectToAction("All");
             }
 
-            return View("Details", product);
+            return View("Details", category);
         }
 
-        [HttpPost("/products/{productId}/delete")]
-        public IActionResult Delete(int productId)
+        [HttpPost("/categories/{categoryId}/delete")]
+        public IActionResult Delete(int categoryId)
         {
-            Product product = db.Products.FirstOrDefault(p => p.ProductId == productId);
+            Category category = db.Categories.FirstOrDefault(p => p.CategoryId == categoryId);
 
-            if (product == null)
+            if (category == null)
             {
                 return RedirectToAction("All");
             }
 
-            db.Products.Remove(product);
+            db.Categories.Remove(category);
             db.SaveChanges();
             return RedirectToAction("All");
         }
 
-        [HttpGet("/products/{productId}/edit")]
-        public IActionResult Edit(int productId)
+        [HttpGet("/categories/{categoryId}/edit")]
+        public IActionResult Edit(int categoryId)
         {
-            Product product = db.Products.FirstOrDefault(p => p.ProductId == productId);
+            Category category = db.Categories.FirstOrDefault(p => p.CategoryId == categoryId);
 
-            if (product == null)
+            if (category == null)
             {
               return RedirectToAction("All");
             }
 
-            return View("Edit", product);
+            return View("Edit", category);
         }
 
         // [HttpPost("/posts/{postId}/update")]
