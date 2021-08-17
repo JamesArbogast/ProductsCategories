@@ -59,13 +59,30 @@ namespace ProductsCategories.Controllers
         public IActionResult Details(int productId)
         {
             Product product = db.Products.FirstOrDefault(c => c.ProductId == productId);
-
             if (product == null)
             {
                 return RedirectToAction("All");
             }
+            ViewBag.allCategories = db.Categories.ToList();
+            return View("OneProd", product);
+        }
+        [HttpPost("/products/{productId}/sort")]
+        public IActionResult Sort(int productId)
+        {
+            var sortedProduct = db.Products
+              .Include(product => product.Categories)
+                .ThenInclude(sort => sort.Product)
+              .FirstOrDefault(product => product.ProductId == productId);
+              
+            SortedProduct sortProd = new SortedProduct()
+            {
+              ProductId = productId,
+            };
 
-            return View("Details", product);
+              db.SortedProducts.Add(sortProd);
+              db.SaveChanges();
+
+              return View("OneProd", sortProd);
         }
 
         [HttpPost("/products/{productId}/delete")]

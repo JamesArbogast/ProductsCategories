@@ -15634,6 +15634,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\james\\OneDrive\\Desktop\\coding_dojo\\CSharp\\ProductsCategories\\Views\\Product\\OneProd.cshtml",
+      "TargetPath": "Views\\Product\\OneProd.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\james\\OneDrive\\Desktop\\coding_dojo\\CSharp\\ProductsCategories\\Views\\Product\\AllProducts.cshtml",
       "TargetPath": "Views\\Product\\AllProducts.cshtml",
       "FileKind": "mvc"

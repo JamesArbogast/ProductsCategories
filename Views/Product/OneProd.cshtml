@@ -1,0 +1,34 @@
+@model Product
+
+<div class="text-center">
+    <a href="/products"><p>Products</p></a>
+    <h1 class="display-4">@Model.Name</h1>
+    <div class="card-header bg-dark text-light">
+      <div>Categories:</div>
+      <ul>
+        @if(@Model.Categories == null)
+        {
+          <li>Categories Empty</li>
+        }
+        else 
+        {
+          @foreach (var category in @Model.Categories)
+          {
+            <li>@category.Category.Name</li>
+          } 
+        }
+      </ul>
+    </div>
+    <div>
+      <form asp-controller="Product" asp-action="Sort" asp-route-productId = "@Model.ProductId">
+        <select>
+          @foreach (Category category2 in ViewBag.allCategories)
+          {
+              <option value="@category2.CategoryId">@category2.Name</option>
+          } 
+        </select>
+        <input type="submit"/>
+      </form>
+    </div>
+    <div class="card-body">
+</div>
