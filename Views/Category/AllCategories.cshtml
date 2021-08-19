@@ -10,7 +10,7 @@
                 @foreach (var cat in Model)
                 {
                     <tr>
-                        <td>@cat.Name</td>
+                        <td><a href="/categories/@cat.CategoryId">@cat.Name</a></td>
                     </tr>
                 }
         </table>

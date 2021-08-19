@@ -12,7 +12,7 @@ namespace ProductsCategories.Controllers
         private ProdCatContext db;
         public CategoryController(ProdCatContext context)
         {
-          db = context;
+            db = context;
         }
 
 
@@ -25,7 +25,7 @@ namespace ProductsCategories.Controllers
         [HttpGet("/category/new")]
         public IActionResult New()
         {
-            return View("AddCategory");
+            return View("AddCategories");
         }
 
         // 2. handles POST request form submission to CREATE a new Post model instance
@@ -54,17 +54,35 @@ namespace ProductsCategories.Controllers
             return View("AllCategories", allCategories);
         }
 
+        [HttpPost("/products/{categoryId}/sort")]
+        public IActionResult Sort(int categoryId, SortedProduct sortedProd)
+        {
+            ViewBag.prods = db.Products.ToList();
+            sortedProd.CategoryId = categoryId;
+            db.SortedProducts.Add(sortedProd);
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new {categoryId = categoryId});
+        }
+
         [HttpGet("/categories/{categoryId}")]
         public IActionResult Details(int categoryId)
         {
-            Category category = db.Categories.FirstOrDefault(c => c.CategoryId == categoryId);
-
+            Category category = db.Categories
+                // .Include is always giving you the entity from the table
+                // being queried, for you to include a property from that entity.
+                .Include(category => category.SortedProducts)
+                // .ThenInclude is always giving you the datatype of what was
+                // just previously included so you can include a property on
+                // the entity that was just included.
+                .ThenInclude(sortProd => sortProd.Product)
+                .FirstOrDefault(category => category.CategoryId == categoryId);
             if (category == null)
             {
                 return RedirectToAction("All");
             }
-
-            return View("Details", category);
+            ViewBag.allProducts = db.Products.ToList();
+            return View("OneCategory", category);
         }
 
         [HttpPost("/categories/{categoryId}/delete")]
@@ -89,7 +107,7 @@ namespace ProductsCategories.Controllers
 
             if (category == null)
             {
-              return RedirectToAction("All");
+                return RedirectToAction("All");
             }
 
             return View("Edit", category);

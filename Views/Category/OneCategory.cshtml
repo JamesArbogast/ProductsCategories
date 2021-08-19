@@ -1,23 +1,23 @@
-@model Product
+@model Category
 
 <div class="text-center">
-    <a href="/products"><p>Products</p></a>
+    <a href="/categories"><p>Categories</p></a>
     <h1 class="display-4">@Model.Name</h1>
     <div class="card-header bg-dark text-light">
       <div>
         @{
           SortedProduct newSortProd = new SortedProduct()
           {
-            ProductId = Model.ProductId
+            ProductId = Model.CategoryId
           };
         }
-        <partial name="_AddCategory" model ="@newSortProd"></partial>
+        <partial name="_AddProduct" model ="@newSortProd"></partial>
       </div>
       <div>Categories:</div>
       <ul>
         @foreach(SortedProduct sortProd in @Model.SortedProducts)
         {
-          <li>@sortProd.Category.Name</li>
+          <li>@sortProd.Product.Name</li>
         }
       </ul>
     </div>

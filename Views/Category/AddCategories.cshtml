@@ -1,0 +1,10 @@
+@model Category
+
+<div class="text-center">
+  <h1 class="display-4">Add Categories!</h1>
+  <a href="/categories"><p>Categories</p></a>
+  <form asp-controller="Category" asp-action="CreateCategory" method="POST">
+      <input asp-for="Name">
+      <input type="submit" value="Add Category"/>
+  </form>
+</div>

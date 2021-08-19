@@ -1,0 +1,12 @@
+@model SortedProduct
+
+<form asp-controller="Category" asp-action="Sort" asp-route-categoryId = "@Model.CategoryId" method="POST">
+        <select asp-for="ProductId">
+            @foreach (Product prod in ViewBag.allProducts)
+            {
+                <option value="@prod.ProductId">@prod.Name</option>
+            }
+        </select>
+    </div>
+    <input type="submit" value="Add Product"/>
+</form>

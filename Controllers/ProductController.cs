@@ -12,7 +12,7 @@ namespace ProductsCategories.Controllers
         private ProdCatContext db;
         public ProductController(ProdCatContext context)
         {
-          db = context;
+            db = context;
         }
 
 
@@ -58,7 +58,15 @@ namespace ProductsCategories.Controllers
         [HttpGet("/products/{productId}")]
         public IActionResult Details(int productId)
         {
-            Product product = db.Products.FirstOrDefault(c => c.ProductId == productId);
+            Product product = db.Products
+                // .Include is always giving you the entity from the table
+                // being queried, for you to include a property from that entity.
+                .Include(product => product.SortedProducts)
+                // .ThenInclude is always giving you the datatype of what was
+                // just previously included so you can include a property on
+                // the entity that was just included.
+                .ThenInclude(sortProd => sortProd.Category)
+                .FirstOrDefault(product => product.ProductId == productId);
             if (product == null)
             {
                 return RedirectToAction("All");
@@ -67,22 +75,14 @@ namespace ProductsCategories.Controllers
             return View("OneProd", product);
         }
         [HttpPost("/products/{productId}/sort")]
-        public IActionResult Sort(int productId)
+        public IActionResult Sort(int productId, SortedProduct sortedProd)
         {
-            var sortedProduct = db.Products
-              .Include(product => product.Categories)
-                .ThenInclude(sort => sort.Product)
-              .FirstOrDefault(product => product.ProductId == productId);
-              
-            SortedProduct sortProd = new SortedProduct()
-            {
-              ProductId = productId,
-            };
+            ViewBag.cats = db.Categories.ToList();
+            sortedProd.ProductId = productId;
+            db.SortedProducts.Add(sortedProd);
+            db.SaveChanges();
 
-              db.SortedProducts.Add(sortProd);
-              db.SaveChanges();
-
-              return View("OneProd", sortProd);
+            return RedirectToAction("Details", new {productId = productId});
         }
 
         [HttpPost("/products/{productId}/delete")]
@@ -107,7 +107,7 @@ namespace ProductsCategories.Controllers
 
             if (product == null)
             {
-              return RedirectToAction("All");
+                return RedirectToAction("All");
             }
 
             return View("Edit", product);

@@ -49,6 +49,9 @@ C:\Users\james\OneDrive\Desktop\coding_dojo\CSharp\ProductsCategories\obj\Debug\
 C:\Users\james\OneDrive\Desktop\coding_dojo\CSharp\ProductsCategories\obj\Debug\net5.0\ProductsCategories.genruntimeconfig.cache
 C:\Users\james\OneDrive\Desktop\coding_dojo\CSharp\ProductsCategories\obj\Debug\net5.0\Razor\Views\Product\AddProd.cshtml.g.cs
 C:\Users\james\OneDrive\Desktop\coding_dojo\CSharp\ProductsCategories\obj\Debug\net5.0\Razor\Views\Product\AllProducts.cshtml.g.cs
-C:\Users\james\OneDrive\Desktop\coding_dojo\CSharp\ProductsCategories\obj\Debug\net5.0\Razor\Views\Category\AddCategory.cshtml.g.cs
 C:\Users\james\OneDrive\Desktop\coding_dojo\CSharp\ProductsCategories\obj\Debug\net5.0\Razor\Views\Category\AllCategories.cshtml.g.cs
 C:\Users\james\OneDrive\Desktop\coding_dojo\CSharp\ProductsCategories\obj\Debug\net5.0\Razor\Views\Product\OneProd.cshtml.g.cs
+C:\Users\james\OneDrive\Desktop\coding_dojo\CSharp\ProductsCategories\obj\Debug\net5.0\Razor\Views\Product\_AddCategory.cshtml.g.cs
+C:\Users\james\OneDrive\Desktop\coding_dojo\CSharp\ProductsCategories\obj\Debug\net5.0\Razor\Views\Category\AddCategories.cshtml.g.cs
+C:\Users\james\OneDrive\Desktop\coding_dojo\CSharp\ProductsCategories\obj\Debug\net5.0\Razor\Views\Category\OneCategory.cshtml.g.cs
+C:\Users\james\OneDrive\Desktop\coding_dojo\CSharp\ProductsCategories\obj\Debug\net5.0\Razor\Views\Category\_AddProduct.cshtml.g.cs

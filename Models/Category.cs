@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProductsCategories.Models
   {
@@ -14,5 +16,6 @@ namespace ProductsCategories.Models
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
+        public List<SortedProduct> SortedProducts { get; set; }
       }
   }

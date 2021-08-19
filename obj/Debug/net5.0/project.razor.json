@@ -15619,6 +15619,16 @@
   "RootNamespace": "ProductsCategories",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\james\\OneDrive\\Desktop\\coding_dojo\\CSharp\\ProductsCategories\\Views\\Category\\AddCategories.cshtml",
+      "TargetPath": "Views\\Category\\AddCategories.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\james\\OneDrive\\Desktop\\coding_dojo\\CSharp\\ProductsCategories\\Views\\Product\\_AddCategory.cshtml",
+      "TargetPath": "Views\\Product\\_AddCategory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\james\\OneDrive\\Desktop\\coding_dojo\\CSharp\\ProductsCategories\\Views\\Category\\AllCategories.cshtml",
       "TargetPath": "Views\\Category\\AllCategories.cshtml",
       "FileKind": "mvc"
@@ -15649,13 +15659,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\james\\OneDrive\\Desktop\\coding_dojo\\CSharp\\ProductsCategories\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FilePath": "c:\\Users\\james\\OneDrive\\Desktop\\coding_dojo\\CSharp\\ProductsCategories\\Views\\Category\\_AddProduct.cshtml",
+      "TargetPath": "Views\\Category\\_AddProduct.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\james\\OneDrive\\Desktop\\coding_dojo\\CSharp\\ProductsCategories\\Views\\Category\\AddCategory.cshtml",
-      "TargetPath": "Views\\Category\\AddCategory.cshtml",
+      "FilePath": "c:\\Users\\james\\OneDrive\\Desktop\\coding_dojo\\CSharp\\ProductsCategories\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15676,6 +15686,11 @@
     {
       "FilePath": "c:\\Users\\james\\OneDrive\\Desktop\\coding_dojo\\CSharp\\ProductsCategories\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\james\\OneDrive\\Desktop\\coding_dojo\\CSharp\\ProductsCategories\\Views\\Category\\OneCategory.cshtml",
+      "TargetPath": "Views\\Category\\OneCategory.cshtml",
       "FileKind": "mvc"
     }
   ],
